@@ -110,7 +110,7 @@ const en: Translations = {
     title: "Smart Farming for a",
     titleHighlight: "Sustainable",
     subtitle: "Future",
-    description: "Revolutionizing Ethiopian agriculture with AI-driven solutions. Join thousands of farmers making data-driven decisions for better profits and sustainable farming practices.",
+    description: "Revolutionizing Ethiopian agriculture with AI driven solutions. Join thousands of farmers making data-driven decisions for better profits and sustainable farming practices.",
     features: ["Fast", "Secure", "Insightful", "User-Friendly"],
     buttons: {
       getStarted: "Get Started Free",

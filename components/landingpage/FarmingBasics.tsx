@@ -117,10 +117,10 @@ const FarmingBasics = () => {
 
   return (
     <section className="w-full bg-[#E6C49A]">
-      <div className="grid lg:grid-cols-2 min-h-[600px]">
+      <div className="grid px-4 lg:grid-cols-2 min-h-[600px]">
 
         <motion.div 
-          className="px-6 md:px-16 py-16 flex flex-col justify-center"
+          className="px-10 md:px-16 py-16 flex flex-col justify-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

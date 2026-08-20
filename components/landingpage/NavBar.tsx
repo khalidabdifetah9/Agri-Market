@@ -7,9 +7,9 @@ import { useTranslations } from "../hooks/useTranlations";
 
 
 const LogoComponent = () => (
-  <div className="absolute top-6 left-8 z-50">
+  <Link href={"/"} className="absolute top-6 left-20 z-50">
     <h1 className="text-[25px] font-extrabold text-[#e23f3e]">AgriMarket</h1>
-  </div>
+  </Link >
 );
 
 const Navbar = () => {
@@ -23,7 +23,7 @@ const Navbar = () => {
     {name:t.nav.login,link:"/signin"}
   ]
   return (
-    <nav className={`fixed top-0 w-full z-50 py-4 px-6 md:px-10 flex justify-between items-center bg-[#2e3a2c] text-white ${language === 'am' ? 'amharic' : ''}`}>
+    <nav className={`fixed top-0 z-50 py-4 mx-auto w-full  md:px-20 flex justify-between items-center bg-[#2e3a2c] text-white ${language === 'am' ? 'amharic' : ''}`}>
       <div className="flex p-4 font-bold gap-2 text-2xl md:text-3xl">
         <LogoComponent/>
       </div>
