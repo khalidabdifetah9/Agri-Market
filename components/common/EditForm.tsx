@@ -63,7 +63,9 @@ const EditForm = ({ Fields }: EditFormProps) => {
               <Label>{one.label}</Label>
 
               <Input
-                ref={(el) => (inputRefs.current[one.id] = el)}
+                ref={(el) => {
+                  inputRefs.current[one.id] = el
+                }}
                 className="shadow-none focus-visible:ring-0 bg-black/5 focus-visible:ring-offset-0 focus:outline-none"
                 id={one.id}
                 type={one.type}

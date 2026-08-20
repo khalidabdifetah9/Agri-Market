@@ -7,8 +7,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Heart,
-  GraduationCap,
 } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "../hooks/useTranlations";

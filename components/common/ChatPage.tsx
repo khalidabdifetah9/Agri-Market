@@ -4,7 +4,15 @@ import * as React from "react";
 import { ChatHistory } from "./ChatHistory";
 import { Chats } from "./Chats";
 
-interface Message {
+// Export these types so they can be used in other files
+export interface ChatItem {
+  id: string;
+  title: string;
+  timestamp: string;
+  isActive: boolean;
+}
+
+export interface Message {
   id: string;
   role: "user" | "assistant";
   content: string;
@@ -12,8 +20,21 @@ interface Message {
   suggestions?: string[];
 }
 
+export interface ChatHistoryProps {
+  items: ChatItem[];
+  onNewChat: () => void;
+  onSelectChat: (id: string) => void;
+}
+
+export interface ChatsProps {
+  currentChatTitle: string;
+  messages: Message[];
+  onSendMessage: (content: string) => void;
+  onSuggestionClick: (suggestion: string) => void;
+}
+
 export default function ChatPage() {
-  const [chatItems, setChatItems] = React.useState([
+  const [chatItems, setChatItems] = React.useState<ChatItem[]>([
     {
       id: "1",
       title: "Minimal Assistant",
@@ -69,11 +90,11 @@ export default function ChatPage() {
     },
   ]);
 
-  const handleNewChat = () => {
+  const handleNewChat = (): void => {
     console.log("New chat created");
   };
 
-  const handleSelectChat = (id: string) => {
+  const handleSelectChat = (id: string): void => {
     setChatItems((prev) =>
       prev.map((item) => ({
         ...item,
@@ -83,7 +104,7 @@ export default function ChatPage() {
     console.log(`Loading chat ${id}`);
   };
 
-  const handleSendMessage = (content: string) => {
+  const handleSendMessage = (content: string): void => {
     const newMessage: Message = {
       id: Date.now().toString(),
       role: "user",
@@ -105,15 +126,15 @@ export default function ChatPage() {
     }, 1000);
   };
 
-  const handleSuggestionClick = (suggestion: string) => {
+  const handleSuggestionClick = (suggestion: string): void => {
     handleSendMessage(suggestion);
   };
 
-  const currentChatTitle =
+  const currentChatTitle: string =
     chatItems.find((item) => item.isActive)?.title || "Green Minimal Assistant";
 
   return (
-    <div className="max-w-325 w-full h-[90vh] max-h-200 bg-white  flex overflow-hidden">
+    <div className="max-w-325 w-full h-[90vh] max-h-200 bg-white flex overflow-hidden">
       <ChatHistory
         items={chatItems}
         onNewChat={handleNewChat}

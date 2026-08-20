@@ -1,7 +1,8 @@
 'use client'
+
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { useTranslations } from '../hooks/useTranlations';
+import { motion, Variants } from "framer-motion";
+import {useTranslations} from "../hooks/useTranlations"
 
 const FarmingBasics = () => {
   const t = useTranslations();
@@ -25,7 +26,7 @@ const FarmingBasics = () => {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -36,7 +37,7 @@ const FarmingBasics = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { 
       opacity: 0, 
       x: -50 
@@ -52,7 +53,7 @@ const FarmingBasics = () => {
     },
   };
 
-  const textVariants = {
+  const textVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 20 
@@ -67,7 +68,7 @@ const FarmingBasics = () => {
     },
   };
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     hidden: { 
       opacity: 0, 
       x: 100,
@@ -86,7 +87,7 @@ const FarmingBasics = () => {
     },
   };
 
-  const buttonVariants = {
+  const buttonVariants: Variants = {
     hidden: { 
       opacity: 0, 
       scale: 0.8,
@@ -172,6 +173,7 @@ const FarmingBasics = () => {
 
           <motion.button 
             className="mt-10 w-fit px-6 py-3 bg-black text-[#e4e5ba]"
+            variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
           >

@@ -14,12 +14,14 @@ interface Message {
   role: "user" | "assistant";
   content: string;
   timestamp: string;
+  suggestions?: string[];
 }
 
 interface ChatsProps {
   currentChatTitle?: string;
   messages: Message[];
   onSendMessage?: (message: string) => void;
+  onSuggestionClick?: (suggestion: string) => void;
   className?: string;
 }
 
@@ -27,6 +29,7 @@ export function Chats({
   currentChatTitle = "minimal design",
   messages,
   onSendMessage,
+  onSuggestionClick,
   className,
 }: ChatsProps) {
   const [inputValue, setInputValue] = React.useState("");
@@ -97,6 +100,21 @@ export function Chats({
                     {message.content}
                   </p>
                 </div>
+
+                {message.suggestions && message.suggestions.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {message.suggestions.map((suggestion, index) => (
+                      <button
+                        key={index}
+                        onClick={() => onSuggestionClick && onSuggestionClick(suggestion)}
+                        className="text-xs px-3 py-1 rounded-full bg-[#e2f3e9] text-[#1f6a3d] hover:bg-[#d4efde] transition-colors"
+                      >
+                        {suggestion}
+                      </button>
+                    ))}
+                  </div>
+                )}
+
                 <span className="text-[0.65rem] text-[#6ea584] mt-1 ml-1">
                   {message.timestamp}
                 </span>
