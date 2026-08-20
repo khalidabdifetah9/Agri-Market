@@ -1,8 +1,22 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-const NavigationLink = ({Links}) => {
-  const pathname  = usePathname();
+
+// Define the type for a single link
+interface LinkItem {
+  to: string;
+  name: string;
+  icon: React.ReactNode;
+}
+
+// Define the props type
+interface NavigationLinkProps {
+  Links: LinkItem[];
+}
+
+const NavigationLink = ({ Links }: NavigationLinkProps) => {
+  const pathname = usePathname();
+  
   return (
     <div>
       <h1 className="text-xs text-black/30 my-3 font-semibold">General</h1>
